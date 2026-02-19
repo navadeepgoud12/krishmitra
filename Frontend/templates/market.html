@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Prices - KrishMitra 🌾</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='hero.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='market.css') }}">
+</head>
+<body>
+
+<!-- 🔝 Navbar -->
+<nav class="navbar">
+    <div class="logo"><a href="{{ url_for('home') }}" style="color: inherit; text-decoration: none;">🌱 KrishMitra</a></div>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('predict_page') }}">Predict</a></li>
+        <li><a href="{{ url_for('analyze') }}">Analyze</a></li>
+        <li><a href="{{ url_for('weather') }}">Weather</a></li>
+        <li><a href="{{ url_for('market') }}" class="active">Market</a></li>
+        <li><a href="{{ url_for('schemes') }}">Schemes</a></li>
+    </ul>
+</nav>
+
+<!-- 💰 Market Section -->
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>💰 Market Prices</h1>
+        <p>Live commodity prices and trends</p>
+    </div>
+</section>
+
+<!-- Market Content Section -->
+<section style="padding: 60px 20px; background: #f9f9f9; min-height: 100vh;">
+    <div class="market-container">
+        <h3 style="text-align: center; font-size: 28px; margin-bottom: 40px;">Current Market Prices</h3>
+        <table class="market-table">
+            <thead>
+                <tr>
+                    <th>Crop</th>
+                    <th>Price/Quintal</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="crop-name">🌾 Rice</td>
+                    <td class="price">₹2,150</td>
+                    <td class="change positive">↑ +2.5%</td>
+                </tr>
+                <tr>
+                    <td class="crop-name">🌱 Wheat</td>
+                    <td class="price">₹2,050</td>
+                    <td class="change negative">↓ -1.2%</td>
+                </tr>
+                <tr>
+                    <td class="crop-name">🌽 Maize</td>
+                    <td class="price">₹1,850</td>
+                    <td class="change positive">↑ +3.1%</td>
+                </tr>
+                <tr>
+                    <td class="crop-name">🫘 Soybean</td>
+                    <td class="price">₹3,200</td>
+                    <td class="change positive">↑ +1.8%</td>
+                </tr>
+                <tr>
+                    <td class="crop-name">🌰 Cotton</td>
+                    <td class="price">₹5,500</td>
+                    <td class="change negative">↓ -0.5%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- JavaScript Files -->
+<script src="{{ url_for('static', filename='utility.js') }}"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>

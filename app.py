@@ -25,8 +25,43 @@ def home():
     except Exception as e:
         raise Krishmitra(e,sys)
 
-@app.route('/predict', methods=['POST'])
-def predict():
+@app.route('/predict')
+def predict_page():
+    try:
+        return render_template('predict.html')
+    except Exception as e:
+        raise Krishmitra(e,sys)
+
+@app.route('/analyze')
+def analyze():
+    try:
+        return render_template('analyze.html')
+    except Exception as e:
+        raise Krishmitra(e,sys)
+
+@app.route('/weather')
+def weather():
+    try:
+        return render_template('weather.html')
+    except Exception as e:
+        raise Krishmitra(e,sys)
+
+@app.route('/market')
+def market():
+    try:
+        return render_template('market.html')
+    except Exception as e:
+        raise Krishmitra(e,sys)
+
+@app.route('/schemes')
+def schemes():
+    try:
+        return render_template('schemes.html')
+    except Exception as e:
+        raise Krishmitra(e,sys)
+
+@app.route('/api/predict', methods=['POST'])
+def predict_api():
     data = request.json
     
     temp = data['temperature']

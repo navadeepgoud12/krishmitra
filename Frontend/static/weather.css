@@ -1,0 +1,94 @@
+/* Weather Page Styling */
+.weather-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.weather-hero {
+    position: relative;
+    height: 80vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-hero .content {
+    text-align: center;
+}
+
+.weather-info-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 50px;
+    flex-wrap: wrap;
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.weather-card h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.weather-card h1 {
+    font-size: 48px;
+    color: white;
+    margin: 10px 0;
+}
+
+.weather-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.alert-box {
+    background: rgba(255, 193, 7, 0.2);
+    border-left: 4px solid #FFC107;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .weather-hero {
+        height: 60vh;
+    }
+
+    .weather-info-section {
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    .weather-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}

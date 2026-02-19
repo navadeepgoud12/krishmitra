@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KrishMitra 🌾</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='hero.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cards.css') }}">
 </head>
 <body>
 
 <!-- 🔝 Navbar -->
 <nav class="navbar">
-    <div class="logo">🌱 KrishMitra</div>
+    <div class="logo"><a href="{{ url_for('home') }}" style="color: inherit; text-decoration: none;">🌱 KrishMitra</a></div>
     <ul>
-        <li class="active">Dashboard</li>
-        <li onclick="window.location.href='Frontend\templates\predict.html'">Predict</a></li>
-        <li>Analyze</li>
-        <li>Weather</li>
-        <li>Market</li>
-        <li>Schemes</li>
+        <li><a href="{{ url_for('home') }}" class="active">Dashboard</a></li>
+        <li><a href="{{ url_for('predict_page') }}">Predict</a></li>
+        <li><a href="{{ url_for('analyze') }}">Analyze</a></li>
+        <li><a href="{{ url_for('weather') }}">Weather</a></li>
+        <li><a href="{{ url_for('market') }}">Market</a></li>
+        <li><a href="{{ url_for('schemes') }}">Schemes</a></li>
     </ul>
 </nav>
 
@@ -91,6 +97,9 @@
 
 </div>
 
+<!-- JavaScript Files -->
+<script src="{{ url_for('static', filename='utility.js') }}"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
 
 </body>
 </html>

@@ -1,0 +1,172 @@
+/* Forms */
+.form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    margin: 30px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"] {
+    background: #4CAF50;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #0b7dda;
+    transform: translateY(-2px);
+}
+
+/* Danger Button */
+.btn-danger {
+    background: #f44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #da190b;
+    transform: translateY(-2px);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Result Display */
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+}
+
+#result.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+#result.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+#result.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    display: block;
+}
+
+/* Form Validation */
+input.error {
+    border-color: #f44336;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

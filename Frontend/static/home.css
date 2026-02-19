@@ -22,6 +22,25 @@ body {
     cursor: pointer;
 }
 
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 10px;
+    display: block;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.navbar a.active {
+    background: green;
+    color: white;
+}
+
 .navbar .active {
     background: green;
     color: white;
