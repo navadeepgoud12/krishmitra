@@ -1,5 +1,5 @@
 import sys
-from logging.logger import logging
+from Backend.logger.logger import logging
 class Krishmitra(Exception):
     """
     

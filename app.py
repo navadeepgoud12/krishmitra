@@ -1,12 +1,22 @@
-from flask import Flask
-from exception.exception import Krishmitra
-from logging.logger import logging
+from Backend.exception.exception import Krishmitra
+from Backend.logger.logger import logging 
 import sys
 import os
-from flask import render_template
+from flask import Flask,render_template,request,jsonify
 
 
-app = Flask(__name__)
+
+
+import os
+
+from flask import Flask, render_template
+
+app = Flask(
+    __name__,
+    template_folder='Frontend/templates',
+    static_folder='Frontend/static'
+)
+
 
 @app.route('/')
 def home():
@@ -15,6 +25,17 @@ def home():
     except Exception as e:
         raise Krishmitra(e,sys)
 
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    
+    temp = data['temperature']
+    humidity = data['humidity']
+
+    # Dummy ML logic (replace later)
+    result = "High Yield" if temp > 25 else "Low Yield"
+
+    return jsonify({"prediction": result})
 
 
 if __name__ == "__main__":

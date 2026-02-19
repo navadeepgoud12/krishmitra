@@ -2,12 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishmithra</title>
+    <title>KrishMitra 🌾</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 </head>
 <body>
-    <h1>Welcome to Krishmithra</h1>
-    <p>This is the home page of the Krishmithra project.</p>
-    
+
+<!-- 🔝 Navbar -->
+<nav class="navbar">
+    <div class="logo">🌱 KrishMitra</div>
+    <ul>
+        <li class="active">Dashboard</li>
+        <li onclick="window.location.href='Frontend\templates\predict.html'">Predict</a></li>
+        <li>Analyze</li>
+        <li>Weather</li>
+        <li>Market</li>
+        <li>Schemes</li>
+    </ul>
+</nav>
+
+<!-- 🌾 Hero Section -->
+<section class="hero">
+    <div class="overlay"></div>
+
+    <div class="content">
+        <h1>Welcome, Farmer!</h1>
+        <p>AI-powered tools to optimize your farming</p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon green">📈</div>
+                <h3>Predict Yield</h3>
+                <p>Get accurate crop yield predictions</p>
+            </div>
+
+            <div class="card">
+                <div class="icon yellow">🔍</div>
+                <h3>Analyze Disease</h3>
+                <p>Upload crop images for detection</p>
+            </div>
+
+            <div class="card">
+                <div class="icon blue">🌧️</div>
+                <h3>Weather Forecast</h3>
+                <p>Get detailed weather insights</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<div class="info-section">
+
+    <!-- 🌦️ Weather -->
+    <div class="info-card weather" onclick="goToWeather()">
+        <h2>🌦️ Current Weather</h2>
+        <h1>25°C</h1>
+        <p>Sunny</p>
+        <div class="details">
+            <span>💧 65%</span>
+            <span>🌬️ 12 km/h</span>
+        </div>
+        <button>View Details</button>
+    </div>
+
+    <!-- 💰 Market -->
+    <div class="info-card market" onclick="goToMarket()">
+        <h2>💰 Market Prices</h2>
+        <p>Rice - ₹2,150/quintal</p>
+        <p>Wheat - ₹2,050/quintal</p>
+        <p>Maize - ₹1,850/quintal</p>
+        <button>View All Prices</button>
+    </div>
+
+    <!-- 🏛️ Schemes -->
+    <div class="info-card schemes" onclick="goToSchemes()">
+        <h2>🏛️ Government Schemes</h2>
+        <div class="scheme-box">
+            <p><b>PM-KISAN</b></p>
+            <span>Direct income support</span>
+        </div>
+        <div class="scheme-box">
+            <p><b>Crop Insurance</b></p>
+            <span>Risk protection scheme</span>
+        </div>
+        <button>Explore Schemes</button>
+    </div>
+
+</div>
+
+
 </body>
 </html>
