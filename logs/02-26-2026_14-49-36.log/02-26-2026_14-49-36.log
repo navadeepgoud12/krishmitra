@@ -1,0 +1,7 @@
+[2026-02-26 14:49:45,715] 15 INFO - Starting data ingestion
+[2026-02-26 14:49:45,715] 45 INFO - Reading data from database: KrishMitra and collection: Cropyield
+[2026-02-26 14:49:52,615] 86 INFO - splitting the data into train and test set with test size 0.2
+[2026-02-26 14:49:52,615] 87 INFO - exited the split_data_as_train_test method of DataIngestion class
+[2026-02-26 14:49:52,617] 91 INFO - exporting the train and test file to path: Artifacts\02-26-2026-14-49-42\data_injestion\ingested\train.csv and Artifacts\02-26-2026-14-49-42\data_injestion\ingested\test.csv
+[2026-02-26 14:49:52,846] 95 INFO - exported the train and test file successfully
+[2026-02-26 14:49:52,875] 17 INFO - Data ingestion completed and artifact is DataIngestionArtifact(train_file_path='Artifacts\\02-26-2026-14-49-42\\data_injestion\\ingested\\train.csv', test_file_path='Artifacts\\02-26-2026-14-49-42\\data_injestion\\ingested\\test.csv')

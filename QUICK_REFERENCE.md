@@ -239,3 +239,23 @@ When modifying files:
 ---
 Last Updated: February 2026
 Version: 1.0
+
+
+
+
+## pipeline of cropyield
+
+1. Data Ingestion
+   → Read from MongoDB
+   → Save raw data
+
+2. Data Validation
+   → Check schema
+   → Check nulls
+
+3. Data Transformation  ✅ (YOUR OUTLIERS HERE)
+   → Remove outliers
+   → Log transform
+   → Scaling
+
+4. Model Training

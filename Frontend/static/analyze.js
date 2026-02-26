@@ -57,9 +57,9 @@ async function handleAnalyzeSubmit(e) {
         return;
     }
     
-    // Validate file size (max 5MB)
-    if (imageFile.size > 5 * 1024 * 1024) {
-        showNotification('Image size should be less than 5MB', 'error');
+    // Validate file size (max 2MB)
+    if (imageFile.size > 2 * 1024 * 1024) {
+        showNotification('Image size should be less than 2MB', 'error');
         return;
     }
     
