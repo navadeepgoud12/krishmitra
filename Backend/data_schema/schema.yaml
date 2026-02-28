@@ -1,0 +1,31 @@
+columns:
+  Crop: object
+  Crop_Year: int
+  Season: object
+  State: object
+  Area: float
+  Production: int
+  Annual_Rainfall: float
+  Fertilizer: float
+  Pesticide: float
+  Yield: float
+  Avg_Temperature: float
+  Max_Temperature: float
+  Min_Temperature: float
+
+numeric_columns:
+  - Crop_Year
+  - Area
+  - Production
+  - Annual_Rainfall
+  - Fertilizer
+  - Pesticide
+  - Yield
+  - Avg_Temperature
+  - Max_Temperature
+  - Min_Temperature
+
+categorical_columns:
+  - Crop
+  - Season
+  - State
