@@ -14,6 +14,7 @@ TRAIN_FILE_NAME:str = "train.csv"
 TEST_FILE_NAME:str = "test.csv"
 
 SCHEMA_FILE_PATH = "Backend\data_schema\schema.yaml"
+TARGET_COLUMN = "Yield"
 
 """
  data injestion related constant start with DATA_INJESTION var name
@@ -32,3 +33,12 @@ DATA_VALIDATION_VALID_DIR:str = "validated"
 DATA_VALIDATION_INVALID_DIR:str = "invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR:str = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME:str = "report.yaml"
+
+DATA_TRANSFORMATION_IMPUTER_PARAMS: dict = {"n_neighbors":3,"weights":"uniform","missing_values":np.nan}
+
+"""Data Transformation related constant start with DATA_TRANSFORMATION VAR NAME"""
+
+DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
+DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
+TRANSFORMED_OBJECT_FILE_NAME: str = "processor.pkl"

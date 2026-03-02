@@ -8,3 +8,4 @@ dotenv
 certifi
 scikit-learn
 pyYAML
+dill

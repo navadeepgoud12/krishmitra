@@ -1,0 +1,22 @@
+[2026-03-02 00:54:52,664] 17 INFO - Starting data ingestion
+[2026-03-02 00:54:52,668] 45 INFO - Reading data from database: KrishMitra and collection: Cropyield
+[2026-03-02 00:54:55,330] 86 INFO - splitting the data into train and test set with test size 0.2
+[2026-03-02 00:54:55,330] 87 INFO - exited the split_data_as_train_test method of DataIngestion class
+[2026-03-02 00:54:55,347] 91 INFO - exporting the train and test file to path: Artifacts\03-02-2026-00-54-50\data_injestion\ingested\train.csv and Artifacts\03-02-2026-00-54-50\data_injestion\ingested\test.csv
+[2026-03-02 00:54:55,562] 95 INFO - exported the train and test file successfully
+[2026-03-02 00:54:55,562] 19 INFO - Data ingestion completed and artifact is DataIngestionArtifact(train_file_path='Artifacts\\03-02-2026-00-54-50\\data_injestion\\ingested\\train.csv', test_file_path='Artifacts\\03-02-2026-00-54-50\\data_injestion\\ingested\\test.csv')
+[2026-03-02 00:54:55,578] 22 INFO - initate the data valiadtion
+[2026-03-02 00:54:55,674] 93 INFO - validating training and testing data for number of columns
+[2026-03-02 00:54:55,674] 36 INFO - number of columns in the schema: 13
+[2026-03-02 00:54:55,674] 37 INFO - number of columns in the dataframe: 13
+[2026-03-02 00:54:55,674] 36 INFO - number of columns in the schema: 13
+[2026-03-02 00:54:55,674] 37 INFO - number of columns in the dataframe: 13
+[2026-03-02 00:54:55,674] 103 INFO - validating training and testing data for numeric columns
+[2026-03-02 00:54:55,674] 48 INFO - numeric columns in the schema: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-02 00:54:55,674] 50 INFO - numeric columns in the dataframe: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-02 00:54:55,674] 48 INFO - numeric columns in the schema: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-02 00:54:55,674] 50 INFO - numeric columns in the dataframe: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-02 00:54:55,983] 24 INFO - Data validation completed and artifact is DataValidationArtifact(validation_status=True, valid_train_file_path='Artifacts\\03-02-2026-00-54-50\\data_validation\\validated\\train.csv', valid_test_file_path='Artifacts\\03-02-2026-00-54-50\\data_validation\\validated\\test.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='Artifacts\\03-02-2026-00-54-50\\data_validation\\report.yaml')
+[2026-03-02 00:54:55,983] 27 INFO - data transformation has been started.
+[2026-03-02 00:54:55,983] 28 INFO - Data Transformation initialized
+[2026-03-02 00:54:55,983] 111 INFO - Data Transformation started

@@ -1,0 +1,39 @@
+Annual_Rainfall:
+  drift_status: false
+  p_value: 0.8750391239415957
+Area:
+  drift_status: false
+  p_value: 0.8242764494097288
+Avg_Temperature:
+  drift_status: false
+  p_value: 0.7648900567296366
+Crop:
+  drift_status: false
+  p_value: 0.23427516754097266
+Crop_Year:
+  drift_status: false
+  p_value: 0.8515482084535639
+Fertilizer:
+  drift_status: false
+  p_value: 0.7834417651776439
+Max_Temperature:
+  drift_status: false
+  p_value: 0.37052340382211757
+Min_Temperature:
+  drift_status: false
+  p_value: 0.6108159334708532
+Pesticide:
+  drift_status: false
+  p_value: 0.9152838388260048
+Production:
+  drift_status: false
+  p_value: 0.2599230156433536
+Season:
+  drift_status: false
+  p_value: 0.8207755351705052
+State:
+  drift_status: false
+  p_value: 0.9029756974579461
+Yield:
+  drift_status: true
+  p_value: 0.02969360417900646
