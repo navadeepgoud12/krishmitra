@@ -1,9 +1,10 @@
 from Backend.logger.logger import logging
-from Backend.crop_yield.entity.config_entity import TrainingPipelineConfig,DataInjestionConfig,DataValidationConfig,DataTransformationConfig
-from Backend.crop_yield.entity.artifacts_entity import DataIngestionArtifact
+from Backend.crop_yield.entity.config_entity import TrainingPipelineConfig,DataInjestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
+from Backend.crop_yield.entity.artifacts_entity import DataIngestionArtifact,DataTransformationArtifact,DataValidationArtifact
 from Backend.crop_yield.components.data_injestion import DataIngestion
 from Backend.crop_yield.components.data_validation import DataValidation
 from Backend.crop_yield.components.data_transformation import DataTransformation
+from Backend.crop_yield.components.model_trainer import ModelTrainer
 from Backend.exception.exception import Krishmitra
 
 import os
@@ -29,6 +30,12 @@ if __name__ == "__main__":
         data_transformation_artifact =  data_transformation.initiate_data_transformation()
         print(data_transformation_artifact)
         logging.info(f"data transformation completed and artifact is {data_transformation_artifact}")
+        logging.info("nodel trainer config has been started")
+        model_trainer_config = ModelTrainerConfig(TrainingPipelineConfig)
+        model_trainer = ModelTrainer(model_trainer_config=model_trainer_config,data_transformation_artifact=data_transformation_artifact)
+        model_trainer_artifact = model_trainer.initate_model_trainer()
+
+        logging.info("model trainer artifact has been created")
 
     except Exception as e:
         raise Krishmitra(e,sys)

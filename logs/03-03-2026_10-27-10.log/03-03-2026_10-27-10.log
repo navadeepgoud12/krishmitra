@@ -1,0 +1,35 @@
+[2026-03-03 10:27:21,194] 1025 INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-03-03 10:27:21,209] 107 INFO - Accessing as navadeepgoud12
+[2026-03-03 10:27:22,529] 1025 INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/navadeepgoud12/krishmitra "HTTP/1.1 200 OK"
+[2026-03-03 10:27:23,744] 1025 INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-03-03 10:27:23,762] 107 INFO - Initialized MLflow to track repo "navadeepgoud12/krishmitra"
+[2026-03-03 10:27:23,767] 107 INFO - Repository navadeepgoud12/krishmitra initialized!
+[2026-03-03 10:27:23,794] 18 INFO - Starting data ingestion
+[2026-03-03 10:27:23,794] 45 INFO - Reading data from database: KrishMitra and collection: Cropyield
+[2026-03-03 10:27:28,386] 86 INFO - splitting the data into train and test set with test size 0.2
+[2026-03-03 10:27:28,388] 87 INFO - exited the split_data_as_train_test method of DataIngestion class
+[2026-03-03 10:27:28,388] 91 INFO - exporting the train and test file to path: Artifacts\03-03-2026-10-27-11\data_injestion\ingested\train.csv and Artifacts\03-03-2026-10-27-11\data_injestion\ingested\test.csv
+[2026-03-03 10:27:28,565] 95 INFO - exported the train and test file successfully
+[2026-03-03 10:27:28,566] 20 INFO - Data ingestion completed and artifact is DataIngestionArtifact(train_file_path='Artifacts\\03-03-2026-10-27-11\\data_injestion\\ingested\\train.csv', test_file_path='Artifacts\\03-03-2026-10-27-11\\data_injestion\\ingested\\test.csv')
+[2026-03-03 10:27:28,591] 23 INFO - initate the data valiadtion
+[2026-03-03 10:27:28,691] 93 INFO - validating training and testing data for number of columns
+[2026-03-03 10:27:28,691] 36 INFO - number of columns in the schema: 13
+[2026-03-03 10:27:28,691] 37 INFO - number of columns in the dataframe: 13
+[2026-03-03 10:27:28,691] 36 INFO - number of columns in the schema: 13
+[2026-03-03 10:27:28,691] 37 INFO - number of columns in the dataframe: 13
+[2026-03-03 10:27:28,691] 103 INFO - validating training and testing data for numeric columns
+[2026-03-03 10:27:28,691] 48 INFO - numeric columns in the schema: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-03 10:27:28,691] 50 INFO - numeric columns in the dataframe: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-03 10:27:28,691] 48 INFO - numeric columns in the schema: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-03 10:27:28,691] 50 INFO - numeric columns in the dataframe: ['Crop_Year', 'Area', 'Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-03 10:27:29,012] 25 INFO - Data validation completed and artifact is DataValidationArtifact(validation_status=True, valid_train_file_path='Artifacts\\03-03-2026-10-27-11\\data_validation\\validated\\train.csv', valid_test_file_path='Artifacts\\03-03-2026-10-27-11\\data_validation\\validated\\test.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='Artifacts\\03-03-2026-10-27-11\\data_validation\\report.yaml')
+[2026-03-03 10:27:29,012] 28 INFO - data transformation has been started.
+[2026-03-03 10:27:29,012] 28 INFO - Data Transformation initialized
+[2026-03-03 10:27:29,012] 115 INFO - Data Transformation started
+[2026-03-03 10:27:29,164] 88 INFO - NUM columns: ['Crop_Year', 'Area', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Avg_Temperature', 'Max_Temperature', 'Min_Temperature']
+[2026-03-03 10:27:29,164] 89 INFO - CAT columns: ['Crop', 'Season', 'State']
+[2026-03-03 10:27:29,229] 59 INFO - enter into the save_object method of utils module to pickle the object
+[2026-03-03 10:27:29,229] 64 INFO - exit from the save_object method of utils module after pickling the object
+[2026-03-03 10:27:29,229] 182 INFO - Data Transformation completed successfully
+[2026-03-03 10:27:29,229] 32 INFO - data transformation completed and artifact is DataTransformationArtifact(transformed_object_file_path='Artifacts\\03-03-2026-10-27-11\\data_transformation\\transformed_object\\processor.pkl', transformed_train_file_path='Artifacts\\03-03-2026-10-27-11\\data_transformation\\transformed\\train.npy', transformed_test_file_path='Artifacts\\03-03-2026-10-27-11\\data_transformation\\transformed\\test.npy')
+[2026-03-03 10:27:29,229] 33 INFO - nodel trainer config has been started

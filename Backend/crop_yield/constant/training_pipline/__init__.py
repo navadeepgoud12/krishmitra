@@ -15,6 +15,8 @@ TEST_FILE_NAME:str = "test.csv"
 
 SCHEMA_FILE_PATH = "Backend\data_schema\schema.yaml"
 TARGET_COLUMN = "Yield"
+SAVED_MODEL_DIR = os.path.join('saved_models')
+MODEL_FILE_NAME = 'model.pkl'
 
 """
  data injestion related constant start with DATA_INJESTION var name
@@ -42,3 +44,10 @@ DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
 TRANSFORMED_OBJECT_FILE_NAME: str = "processor.pkl"
+
+"""MODELtrainer related constant start with MODEL TRAINER VAR NAME"""
+MODEL_TRAINER_DIR_NAME:str = "model_trainer"
+MODEL_TRAINER_TRAINED_DIR_NAME:str = "trained_model"
+MODEL_TRAINER_TRAINED_MODEL_NAME:str = "model.pkl"
+MODEL_TRAINER_EXCEPTED_SCORE:str = 0.6
+MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD:str = 0.5

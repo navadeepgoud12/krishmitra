@@ -1,149 +1,83 @@
-// Predict Page JavaScript
+// Predict Page JavaScript (Final Working Version)
+console.log("Predict JS Loaded 🚀");
 
-document.addEventListener('DOMContentLoaded', function() {
-    const predictForm = document.getElementById('predictForm');
-    
-    if (predictForm) {
-        predictForm.addEventListener('submit', handlePredictSubmit);
-    }
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("Predict JS loaded ✅");
+
+    const form = document.getElementById("predictForm");
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        console.log("Form submitted ✅");
+
+        // Collect form data
+        const data = {
+            Crop: document.querySelector("[name='Crop']").value,
+            Crop_Year: document.querySelector("[name='Crop_Year']").value,
+            Season: document.querySelector("[name='Season']").value,
+            State: document.querySelector("[name='State']").value,
+            Area: document.querySelector("[name='Area']").value,
+            Annual_Rainfall: document.querySelector("[name='Annual_Rainfall']").value,
+            Fertilizer: document.querySelector("[name='Fertilizer']").value,
+            Pesticide: document.querySelector("[name='Pesticide']").value,
+            Avg_Temperature: document.querySelector("[name='Avg_Temperature']").value,
+            Max_Temperature: document.querySelector("[name='Max_Temperature']").value,
+            Min_Temperature: document.querySelector("[name='Min_Temperature']").value
+        };
+
+        console.log("Sending data:", data);
+
+        try {
+            const response = await fetch("/api/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            console.log("Server response:", result);
+
+            if (!response.ok) {
+                alert(result.error || "Server error occurred");
+                return;
+            }
+
+            displayResult(result.prediction);
+
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Network error. Check console.");
+        }
+    });
+
 });
 
-/**
- * Handle predict form submission
- */
-async function handlePredictSubmit(e) {
-    e.preventDefault();
-    
-    // Validate form
-    if (!validateForm('predictForm')) {
-        showNotification('Please fill all required fields', 'warning');
-        return;
-    }
-    
-    // Get form data
-    const cropName = document.getElementById('cropName').value;
-    const temperature = parseFloat(document.getElementById('temperature').value);
-    const humidity = parseFloat(document.getElementById('humidity').value);
-    const rainfall = parseFloat(document.getElementById('rainfall').value);
-    
-    // Validate numeric values
-    if (isNaN(temperature) || isNaN(humidity) || isNaN(rainfall)) {
-        showNotification('Please enter valid numeric values', 'error');
-        return;
-    }
-    
-    showLoader();
-    
-    // Prepare data
-    const data = {
-        crop: cropName,
-        temperature: temperature,
-        humidity: humidity,
-        rainfall: rainfall
-    };
-    
-    // Call API
-    const result = await apiCall('/api/predict', 'POST', data);
-    
-    hideLoader();
-    
-    if (result) {
-        displayPredictionResult(result, data);
-        showNotification('Prediction completed successfully!', 'success');
-    } else {
-        showNotification('Failed to get prediction', 'error');
-    }
-}
 
-/**
- * Display prediction result
- */
-function displayPredictionResult(result, inputData) {
-    const resultDiv = document.getElementById('result');
-    
-    // Determine yield quality based on prediction
-    let yieldQuality = result.prediction || 'Moderate Yield';
-    let yieldColor = '#FF9800';
-    
-    if (yieldQuality.includes('High')) {
-        yieldColor = '#4CAF50';
-    } else if (yieldQuality.includes('Low')) {
-        yieldColor = '#f44336';
-    }
-    
-    const html = `
-        <div class="prediction-result" style="border-left-color: ${yieldColor}; background-color: rgba(76, 175, 80, 0.1);">
-            <h4>📊 Prediction Result</h4>
-            <p style="font-size: 20px; color: ${yieldColor}; font-weight: 600; margin: 10px 0;">
-                ${yieldQuality}
-            </p>
-            
-            <div class="prediction-details">
-                <div class="detail-item">
-                    <h5>Crop</h5>
-                    <p>${capitalizeFirstLetter(inputData.crop)}</p>
-                </div>
-                <div class="detail-item">
-                    <h5>Temperature</h5>
-                    <p>${inputData.temperature}°C</p>
-                </div>
-                <div class="detail-item">
-                    <h5>Humidity</h5>
-                    <p>${inputData.humidity}%</p>
-                </div>
-                <div class="detail-item">
-                    <h5>Rainfall</h5>
-                    <p>${inputData.rainfall}mm</p>
-                </div>
-            </div>
-            
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ccc;">
-                <h5>Recommendations:</h5>
-                <ul style="padding-left: 20px;">
-                    <li>Monitor soil moisture regularly</li>
-                    <li>Apply fertilizers according to crop requirements</li>
-                    <li>Check weather forecasts for next 7 days</li>
-                    <li>Prepare for any pest management if needed</li>
-                </ul>
-            </div>
-            
-            <button class="btn-secondary" onclick="resetPredictForm()" style="background: #2196F3;">
-                Make Another Prediction
-            </button>
+function displayResult(prediction) {
+
+    console.log("Displaying result:", prediction);
+
+    const resultDiv = document.getElementById("result");
+
+    resultDiv.innerHTML = `
+        <div style="
+            margin-top: 25px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-left: 6px solid #2e7d32;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #2e7d32;
+        ">
+            🌾 Predicted Yield: ${prediction}
         </div>
     `;
-    
-    resultDiv.innerHTML = html;
-    resultDiv.style.display = 'block';
-    resultDiv.scrollIntoView({ behavior: 'smooth' });
-}
 
-/**
- * Reset predict form
- */
-function resetPredictForm() {
-    document.getElementById('predictForm').reset();
-    document.getElementById('result').innerHTML = '';
-    document.getElementById('result').style.display = 'none';
-}
-
-/**
- * Export prediction as CSV
- */
-function exportPrediction() {
-    const cropName = document.getElementById('cropName').value;
-    const temperature = document.getElementById('temperature').value;
-    const humidity = document.getElementById('humidity').value;
-    const rainfall = document.getElementById('rainfall').value;
-    
-    const csv = `Crop,Temperature,Humidity,Rainfall,Prediction Date\n${cropName},${temperature},${humidity},${rainfall},${new Date().toLocaleDateString()}`;
-    
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `prediction_${Date.now()}.csv`;
-    a.click();
-    
-    showNotification('Prediction exported successfully', 'success');
+    resultDiv.style.display = "block";
 }

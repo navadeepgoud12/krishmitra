@@ -9,3 +9,6 @@ certifi
 scikit-learn
 pyYAML
 dill
+mlflow
+xgboost
+dagshub
