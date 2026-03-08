@@ -103,11 +103,11 @@ class ModelTrainer:
    # },
     
     #"XGboost": {
-        #'learning_rate': [0.1, 0.05, 0.01],
-        #'n_estimators': [32, 64, 128],
-        #'max_depth': [3, 5, 6],
-        #'subsample': [0.7, 0.8, 0.9],
-        #'colsample_bytree': [0.7, 0.8, 0.9]
+    #    'learning_rate': [0.1, 0.05, 0.01],
+    #    'n_estimators': [32, 64, 128],
+    #    'max_depth': [3, 5, 6],
+    #    'subsample': [0.7, 0.8, 0.9],
+    #    'colsample_bytree': [0.7, 0.8, 0.9]
     #},
 
     #"AdaBoost": {
@@ -129,7 +129,11 @@ class ModelTrainer:
             list(model_report.values()).index(best_model_score)
         ]
         best_model = models[best_model_name]
-        y_train_pred=best_model.predict(X_train)
+
+# train the model
+        best_model.fit(X_train, y_train)
+
+        y_train_pred = best_model.predict(X_train)
 
         accuracy_train_metric=get_score(y_true=y_train,y_pred=y_train_pred)
         

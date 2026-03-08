@@ -41,12 +41,25 @@
 <section style="padding: 60px 20px; background: #f9f9f9; min-height: 100vh;">
     <div class="form-container">
         <h3 style="text-align: center;">Upload Crop Image</h3>
-        <form id="analyzeForm">
-            <input type="text" placeholder="Crop Type" id="cropType" required>
-            <input type="file" id="cropImage" accept="image/*" required>
-            <button type="submit">Analyze</button>
-        </form>
-        <div id="result"></div>
+        <form action="/predict_disease" method="POST" enctype="multipart/form-data">
+
+    <input type="file" name="leaf_image" required>
+
+    <button type="submit">Detect Disease</button>
+
+    </form>
+        {% if disease %}
+
+    <h2>Disease Prediction</h2>
+
+    <img src="{{ url_for('static', filename='uploads/' + image) }}" width="300">
+
+    <h3>Disease: {{ disease }}</h3>
+
+    <h3>Recommendation:</h3>
+    <p>{{ solution }}</p>
+
+    {% endif %}
     </div>
 </section>
 

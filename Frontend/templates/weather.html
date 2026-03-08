@@ -37,42 +37,61 @@
 </section>
 
 <!-- Weather Content Section -->
-<section style="padding: 60px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+<section class="weather-section" style="padding: 60px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
     <div class="weather-info-section">
-        <div class="weather-card">
-            <h2>Current Weather</h2>
-            <h1>25°C</h1>
-            <p>Sunny</p>
+
+        <!-- Current Weather -->
+        <div class="weather-card main-weather">
+            <h1 id="temp">--°C</h1>
+            <p id="condition">Loading...</p>
+
             <div class="weather-details">
-                <span>💧 65%</span>
-                <span>🌬️ 12 km/h</span>
+                <span id="humidity">💧 --%</span>
+                <span id="wind">🌬️ -- km/h</span>
             </div>
         </div>
 
+        <!-- Next 3 Days -->
         <div class="weather-card">
             <h3>Next 3 Days</h3>
-            <p>Expected Rainfall: 15mm</p>
-            <p>Temperature: 22-27°C</p>
-            <p>Humidity: 60-70%</p>
+
+            <p id="day1"></p>
+            <p id="day2"></p>
+            <p id="day3"></p>
         </div>
 
+        <!-- Air Quality -->
         <div class="weather-card">
             <h3>Air Quality</h3>
-            <p>Good</p>
-            <p>PM2.5: 35 µg/m³</p>
-            <p>Wind: East 10 km/h</p>
+            <p id="air-quality">Loading...</p>
+            <p id="pm25"></p>
         </div>
 
+        <!-- Alerts -->
         <div class="weather-card">
             <h3>Alerts</h3>
             <div class="alert-box">
-                <p>✓ No severe weather alerts</p>
-                <p>✓ Suitable for farming operations</p>
+                <p id="alert1">Checking weather alerts...</p>
             </div>
         </div>
-    </div>
-</section>
+        <!-- avgs for ml-->
+            <div class="weather-card">
+            <h3>Maximum Temp</h3>
+            <h1 id="max_temp">--°C</h1>
+        </div>
 
+        <div class="weather-card">
+            <h3>Average Temp</h3>
+            <h1 id="avg_temp">--°C</h1>
+        </div>
+
+        <div class="weather-card">
+            <h3>Minimum Temp</h3>
+            <h1 id="min_temp">--°C</h1>
+        </div>
+
+    </div>
+    </section>
 <!-- JavaScript Files -->
 <script src="{{ url_for('static', filename='utility.js') }}"></script>
 <script src="{{ url_for('static', filename='main.js') }}"></script>

@@ -225,3 +225,56 @@ function isInViewport(element) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+//weather utility
+async function loadWeather(){
+
+    const response = await fetch("/api/weather");
+
+    const data = await response.json();
+
+    document.getElementById("temp").innerText = data.temp + "°C";
+    document.getElementById("condition").innerText = data.condition;
+
+    document.getElementById("humidity").innerText = "💧 " + data.humidity + "%";
+    document.getElementById("wind").innerText = "🌬️ " + data.wind + " km/h";
+
+    document.getElementById("day1").innerText =
+        "Tomorrow: " + data.forecast[0] + "°C";
+
+    document.getElementById("day2").innerText =
+        "Day 2: " + data.forecast[1] + "°C";
+
+    document.getElementById("day3").innerText =
+        "Day 3: " + data.forecast[2] + "°C";
+    document.getElementById("air-quality").innerText =
+    "AQI Level: " + data.aqi;
+
+    document.getElementById("pm25").innerText =
+    "PM2.5: " + data.pm25 + " µg/m³";
+    let alertText = "✓ Weather conditions look good for farming.";
+
+    if(data.temp > 38){
+        alertText = "⚠ High temperature warning. Irrigation recommended.";
+    }
+
+    if(data.wind > 12){
+        alertText = "⚠ Strong winds expected. Protect crops.";
+    }
+
+    if(data.humidity > 85){
+        alertText = "⚠ High humidity may cause fungal diseases.";
+    }
+
+    document.getElementById("alert1").innerText = alertText;
+    document.getElementById("max_temp").innerText =
+    data.max_temp + "°C";
+
+    document.getElementById("min_temp").innerText =
+        data.min_temp + "°C";
+
+    document.getElementById("avg_temp").innerText =
+        data.avg_temp + "°C";
+
+}
+
+loadWeather();

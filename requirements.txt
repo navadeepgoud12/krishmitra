@@ -12,3 +12,4 @@ dill
 mlflow
 xgboost
 dagshub
+tensorflow

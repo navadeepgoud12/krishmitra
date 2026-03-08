@@ -121,9 +121,8 @@ class DataTransformation:
             # TARGET SPLIT
             # ============================
             X_train = train_df.drop(columns=[TARGET_COLUMN, "Production"], errors="ignore")
-            y_train = train_df[TARGET_COLUMN]
-
             X_test = test_df.drop(columns=[TARGET_COLUMN, "Production"], errors="ignore")
+            y_train = train_df[TARGET_COLUMN]
             y_test = test_df[TARGET_COLUMN]
 
             # ============================

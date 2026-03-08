@@ -92,3 +92,7 @@
         max-width: 300px;
     }
 }
+.main-weather{
+    width:320px;
+    transform:scale(1.05);
+}
