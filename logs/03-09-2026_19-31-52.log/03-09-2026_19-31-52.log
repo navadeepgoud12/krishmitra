@@ -1,0 +1,31 @@
+[2026-03-09 19:32:02,255] 464 WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+[2026-03-09 19:32:02,255] 249 WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+[2026-03-09 19:32:02,483] 97 WARNING -  * Debugger is active!
+[2026-03-09 19:32:02,486] 97 INFO -  * Debugger PIN: 137-931-322
+[2026-03-09 19:32:12,419] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:12] "GET / HTTP/1.1" 200 -
+[2026-03-09 19:32:12,724] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:12] "[36mGET /static/hero.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:12,798] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:12] "[36mGET /static/base.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:12,798] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:12] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:12,817] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:12] "[36mGET /static/cards.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:13,092] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:13] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:13,123] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:13] "[36mGET /static/utility.js HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:13,688] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-03-09 19:32:14,866] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:14] "GET /api/weather HTTP/1.1" 200 -
+[2026-03-09 19:32:17,530] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "GET /weather HTTP/1.1" 200 -
+[2026-03-09 19:32:17,747] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "[36mGET /static/base.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:17,927] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "[36mGET /static/hero.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:17,929] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "[36mGET /static/cards.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:17,929] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:17,936] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "[36mGET /static/utility.js HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:17,992] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:17] "[36mGET /static/weather.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:18,066] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:18] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2026-03-09 19:32:20,579] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:32:20] "GET /api/weather HTTP/1.1" 200 -
+[2026-03-09 19:34:29,710] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:29] "GET /market HTTP/1.1" 200 -
+[2026-03-09 19:34:29,889] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:29] "[36mGET /static/base.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:34:30,080] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:30] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:34:30,090] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:30] "[36mGET /static/hero.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:34:30,114] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:30] "[36mGET /static/cards.css HTTP/1.1[0m" 304 -
+[2026-03-09 19:34:30,114] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:30] "[36mGET /static/utility.js HTTP/1.1[0m" 304 -
+[2026-03-09 19:34:30,159] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:30] "GET /static/market.css HTTP/1.1" 200 -
+[2026-03-09 19:34:30,211] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:30] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2026-03-09 19:34:32,925] 97 INFO - 127.0.0.1 - - [09/Mar/2026 19:34:32] "GET /api/weather HTTP/1.1" 200 -

@@ -36,19 +36,20 @@
 
         <div class="cards">
 
-            <div class="card">
+            <div class="card" onclick="location.href='predict'">
                 <div class="icon green">📈</div>
                 <h3>Predict Yield</h3>
                 <p>Get accurate crop yield predictions</p>
             </div>
-
-            <div class="card">
+            
+            <div class="card" onclick="location.href='analyze'">
                 <div class="icon yellow">🔍</div>
                 <h3>Analyze Disease</h3>
                 <p>Upload crop images for detection</p>
             </div>
+            
 
-            <div class="card">
+            <div class="card" onclick="location.href='weather'">
                 <div class="icon blue">🌧️</div>
                 <h3>Weather Forecast</h3>
                 <p>Get detailed weather insights</p>
@@ -61,24 +62,26 @@
 <div class="info-section">
 
     <!-- 🌦️ Weather -->
-    <div class="info-card weather" onclick="goToWeather()">
-        <h2>🌦️ Current Weather</h2>
-        <h1>25°C</h1>
-        <p>Sunny</p>
-        <div class="details">
-            <span>💧 65%</span>
-            <span>🌬️ 12 km/h</span>
-        </div>
-        <button>View Details</button>
-    </div>
+     <div class="info-card weather" onclick="goToWeather()">
+     <div class="weather-card main-weather">
+            <h1 id="temp">--°C</h1>
+            <p id="condition">Loading...</p>
 
+            <div class="weather-details">
+                <span id="humidity">💧 --%</span>
+                <span id="wind">🌬️ -- km/h</span>
+            </div>
+            <button onclick="location.href='weather'">View All Prices</button>
+    </div>
+    </div>
+    
     <!-- 💰 Market -->
     <div class="info-card market" onclick="goToMarket()">
         <h2>💰 Market Prices</h2>
         <p>Rice - ₹2,150/quintal</p>
         <p>Wheat - ₹2,050/quintal</p>
         <p>Maize - ₹1,850/quintal</p>
-        <button>View All Prices</button>
+        <button onclick="location.href='market'">View All Prices</button>
     </div>
 
     <!-- 🏛️ Schemes -->
@@ -92,7 +95,7 @@
             <p><b>Crop Insurance</b></p>
             <span>Risk protection scheme</span>
         </div>
-        <button>Explore Schemes</button>
+        <button onclick="location.href='schemes'">Explore Schemes</button>
     </div>
 
 </div>
