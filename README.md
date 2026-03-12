@@ -198,7 +198,7 @@ KRISHMITRA/
 ## 1️⃣ Clone the Repository
 
 ```
-git clone https://github.com/yourusername/krishmitra.git
+git clone https://github.com/navadeepgoud12/krishmitra.git
 cd KRISHMITRA
 ```
 
