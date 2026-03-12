@@ -1,193 +1,259 @@
+// ===============================
 // Analyze Page JavaScript
+// ===============================
 
-document.addEventListener('DOMContentLoaded', function() {
-    const analyzeForm = document.getElementById('analyzeForm');
-    const imageInput = document.getElementById('cropImage');
-    
+// Disease Treatment Database
+const diseaseTreatments = {
+
+    "Pepper__bell__Bacterial_spot": [
+        "Remove infected leaves immediately",
+        "Apply copper-based bactericide spray",
+        "Avoid overhead irrigation",
+        "Use disease-free seeds",
+        "Practice crop rotation"
+    ],
+
+    "Pepper__bell__healthy": [
+        "Plant is healthy",
+        "Maintain proper watering schedule",
+        "Ensure good sunlight exposure",
+        "Apply organic fertilizer periodically",
+        "Monitor leaves regularly for early symptoms"
+    ],
+
+    "Potato__Early_blight": [
+        "Apply fungicides such as chlorothalonil or mancozeb",
+        "Remove infected leaves and debris",
+        "Maintain proper spacing between plants",
+        "Use resistant potato varieties",
+        "Avoid excessive moisture on leaves"
+    ],
+
+    "Potato__healthy": [
+        "Plant appears healthy",
+        "Maintain balanced soil nutrients",
+        "Provide proper irrigation",
+        "Ensure good airflow between plants",
+        "Regularly inspect plants"
+    ],
+
+    "Tomato_Early_blight": [
+        "Remove infected leaves immediately",
+        "Apply fungicides such as chlorothalonil",
+        "Avoid watering leaves directly",
+        "Use mulch to prevent soil splash",
+        "Rotate crops yearly"
+    ],
+
+    "Tomato_Late_blight": [
+        "Remove infected plants immediately",
+        "Apply fungicides like metalaxyl",
+        "Avoid excessive humidity",
+        "Ensure proper drainage",
+        "Monitor nearby plants regularly"
+    ],
+
+    "Tomato_healthy": [
+        "Plant is healthy",
+        "Maintain consistent watering",
+        "Provide sufficient sunlight",
+        "Apply balanced fertilizer",
+        "Regular monitoring for early disease signs"
+    ]
+};
+
+
+// ===============================
+// Page Initialization
+// ===============================
+document.addEventListener("DOMContentLoaded", function () {
+
+    const analyzeForm = document.getElementById("analyzeForm");
+    const imageInput = document.getElementById("cropImage");
+
     if (analyzeForm) {
-        analyzeForm.addEventListener('submit', handleAnalyzeSubmit);
+        analyzeForm.addEventListener("submit", handleAnalyzeSubmit);
     }
-    
+
     if (imageInput) {
-        imageInput.addEventListener('change', previewImage);
+        imageInput.addEventListener("change", previewImage);
     }
+
 });
 
-/**
- * Preview image before upload
- */
+
+// ===============================
+// Image Preview
+// ===============================
 function previewImage(e) {
+
     const file = e.target.files[0];
-    
-    if (file) {
-        const reader = new FileReader();
-        
-        reader.onload = function(event) {
-            const imagePreview = document.querySelector('.image-preview');
-            
-            if (!imagePreview) {
-                const preview = document.createElement('div');
-                preview.className = 'image-preview';
-                document.getElementById('analyzeForm').parentElement.appendChild(preview);
-            }
-            
-            document.querySelector('.image-preview').innerHTML = `
-                <h4>Image Preview:</h4>
-                <img src="${event.target.result}" alt="Preview">
-            `;
-            document.querySelector('.image-preview').style.display = 'block';
-        };
-        
-        reader.readAsDataURL(file);
-        showNotification('Image loaded successfully', 'success');
-    }
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+
+        let previewDiv = document.querySelector(".image-preview");
+
+        if (!previewDiv) {
+            previewDiv = document.createElement("div");
+            previewDiv.className = "image-preview";
+            document.getElementById("analyzeForm").parentElement.appendChild(previewDiv);
+        }
+
+        previewDiv.innerHTML = `
+            <h4>Image Preview:</h4>
+            <img src="${event.target.result}" alt="Preview" style="max-width:250px;border-radius:8px;">
+        `;
+
+        previewDiv.style.display = "block";
+    };
+
+    reader.readAsDataURL(file);
+
+    showNotification("Image loaded successfully", "success");
 }
 
-/**
- * Handle analyze form submission
- */
+
+// ===============================
+// Analyze Form Submission
+// ===============================
 async function handleAnalyzeSubmit(e) {
+
     e.preventDefault();
-    
-    const cropType = document.getElementById('cropType').value;
-    const imageFile = document.getElementById('cropImage').files[0];
-    
+
+    const cropType = document.getElementById("cropType").value;
+    const imageFile = document.getElementById("cropImage").files[0];
+
     if (!cropType || !imageFile) {
-        showNotification('Please fill all fields and select an image', 'warning');
+        showNotification("Please select crop type and image", "warning");
         return;
     }
-    
-    // Validate file size (max 2MB)
+
     if (imageFile.size > 2 * 1024 * 1024) {
-        showNotification('Image size should be less than 2MB', 'error');
+        showNotification("Image must be less than 2MB", "error");
         return;
     }
-    
+
     showLoader();
-    
-    // Create FormData for file upload
+
     const formData = new FormData();
-    formData.append('crop_type', cropType);
-    formData.append('image', imageFile);
-    
+    formData.append("crop_type", cropType);
+    formData.append("image", imageFile);
+
     try {
-        const response = await fetch('/api/analyze', {
-            method: 'POST',
+
+        const response = await fetch("/api/analyze", {
+            method: "POST",
             body: formData
         });
-        
+
         hideLoader();
-        
-        if (response.ok) {
-            const result = await response.json();
-            displayAnalysisResult(result, cropType);
-            showNotification('Analysis completed successfully!', 'success');
-        } else {
-            showNotification('Analysis failed. Please try again.', 'error');
+
+        if (!response.ok) {
+            showNotification("Analysis failed", "error");
+            return;
         }
+
+        const result = await response.json();
+
+        displayAnalysisResult(result, cropType);
+
+        showNotification("Analysis completed successfully", "success");
+
     } catch (error) {
+
         hideLoader();
-        console.error('Error:', error);
-        showNotification('Error: ' + error.message, 'error');
+        console.error(error);
+
+        showNotification("Error: " + error.message, "error");
     }
 }
 
-/**
- * Display analysis result
- */
+
+// ===============================
+// Display Result
+// ===============================
 function displayAnalysisResult(result, cropType) {
-    const resultDiv = document.getElementById('result');
-    
+
+    const resultDiv = document.getElementById("result");
+
     const hasDisease = result.disease_detected || false;
-    const diseaseName = result.disease_name || 'Unknown';
+    const diseaseName = result.disease_name || "Unknown";
     const confidence = result.confidence || 0;
-    const treatment = result.treatment || [];
-    
+
+    const treatment = diseaseTreatments[diseaseName] || [
+        "Remove infected leaves",
+        "Apply appropriate fungicide",
+        "Monitor plant health regularly",
+        "Ensure proper irrigation",
+        "Improve air circulation"
+    ];
+
+    const formattedDisease = formatDiseaseName(diseaseName);
+
     const html = `
-        <div class="disease-result" style="border-left-color: ${hasDisease ? '#FF9800' : '#4CAF50'};">
-            <h4>${hasDisease ? '⚠️ Disease Detected' : '✅ Healthy Plant'}</h4>
+        <div class="disease-result" style="border-left:6px solid ${hasDisease ? "#FF9800" : "#4CAF50"};padding:15px;margin-top:20px;border-radius:8px;">
             
-            <div class="disease-info">
-                <p><strong>Crop Type:</strong> ${capitalizeFirstLetter(cropType)}</p>
-                ${hasDisease ? `<p><strong>Disease:</strong> ${diseaseName}</p>` : ''}
-                <p><strong>Confidence:</strong> ${(confidence * 100).toFixed(2)}%</p>
-                <p><strong>Analysis Date:</strong> ${formatDate(new Date())}</p>
+            <h3>${hasDisease ? "⚠️ Disease Detected" : "✅ Healthy Plant"}</h3>
+
+            <p><strong>Crop:</strong> ${capitalizeFirstLetter(cropType)}</p>
+            <p><strong>Disease:</strong> ${formattedDisease}</p>
+            <p><strong>Confidence:</strong> ${(confidence * 100).toFixed(2)}%</p>
+            <p><strong>Date:</strong> ${formatDate(new Date())}</p>
+
+            <div class="recommendations">
+                <h4>🌿 Recommendations</h4>
+                <ul>
+                    ${treatment.map(t => `<li>${t}</li>`).join("")}
+                </ul>
             </div>
-            
-            ${hasDisease ? `
-                <div class="recommendations">
-                    <h5>🌿 Treatment Recommendations:</h5>
-                    <ul>
-                        ${treatment.length > 0 ? treatment.map(t => `<li>${t}</li>`).join('') : `
-                            <li>Isolate affected plants</li>
-                            <li>Apply appropriate fungicide/pesticide</li>
-                            <li>Improve drainage and reduce humidity</li>
-                            <li>Remove infected leaves</li>
-                            <li>Monitor other plants regularly</li>
-                        `}
-                    </ul>
-                </div>
-            ` : `
-                <div class="recommendations">
-                    <h5>✨ Plant Health Status:</h5>
-                    <ul>
-                        <li>Plant appears healthy</li>
-                        <li>Continue regular monitoring</li>
-                        <li>Maintain proper irrigation schedule</li>
-                        <li>Ensure adequate sunlight exposure</li>
-                        <li>Apply preventative measures regularly</li>
-                    </ul>
-                </div>
-            `}
-            
-            <button class="btn-secondary" onclick="resetAnalyzeForm()" style="background: #2196F3;">
+
+            <button onclick="resetAnalyzeForm()" class="btn-secondary" style="margin-top:15px;">
                 Analyze Another Image
             </button>
+
         </div>
     `;
-    
+
     resultDiv.innerHTML = html;
-    resultDiv.style.display = 'block';
-    resultDiv.scrollIntoView({ behavior: 'smooth' });
+    resultDiv.style.display = "block";
+
+    resultDiv.scrollIntoView({ behavior: "smooth" });
 }
 
-/**
- * Reset analyze form
- */
+
+// ===============================
+// Reset Form
+// ===============================
 function resetAnalyzeForm() {
-    document.getElementById('analyzeForm').reset();
-    document.getElementById('result').innerHTML = '';
-    document.getElementById('result').style.display = 'none';
-    
-    const imagePreview = document.querySelector('.image-preview');
-    if (imagePreview) {
-        imagePreview.style.display = 'none';
-    }
+
+    document.getElementById("analyzeForm").reset();
+
+    const resultDiv = document.getElementById("result");
+
+    resultDiv.innerHTML = "";
+    resultDiv.style.display = "none";
+
+    const preview = document.querySelector(".image-preview");
+
+    if (preview) preview.style.display = "none";
 }
 
-/**
- * Download analysis report
- */
-function downloadReport() {
-    const reportContent = `
-CROP DISEASE ANALYSIS REPORT
-============================
-Generated: ${formatDate(new Date())}
 
-Analysis Details:
-- Crop Type: ${document.getElementById('cropType').value}
-- Status: Complete
-- File: Analysis Report
+// ===============================
+// Helper Functions
+// ===============================
+function capitalizeFirstLetter(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
-Recommendations: Check the disease detection report for detailed treatment options.
-    `;
-    
-    const blob = new Blob([reportContent], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `analysis_report_${Date.now()}.txt`;
-    a.click();
-    
-    showNotification('Report downloaded successfully', 'success');
+function formatDiseaseName(name) {
+    return name.replace(/_/g, " ");
+}
+
+function formatDate(date) {
+    return date.toLocaleDateString();
 }

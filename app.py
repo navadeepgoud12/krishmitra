@@ -120,8 +120,69 @@ def api_predict():
 
 @app.route("/predict_disease", methods=["POST"])
 def predict_disease_route():
-
     try:
+
+        # Disease Treatment Database
+        disease_treatments = {
+
+            "Pepper__bell__Bacterial_spot": [
+                "Remove infected leaves",
+                "Apply copper-based bactericide",
+                "Avoid overhead irrigation",
+                "Use disease-free seeds",
+                "Practice crop rotation"
+            ],
+
+            "Pepper__bell__healthy": [
+                "Plant is healthy",
+                "Maintain proper watering",
+                "Ensure adequate sunlight",
+                "Apply organic fertilizer",
+                "Monitor leaves regularly"
+            ],
+
+            "Potato__Early_blight": [
+                "Apply fungicide such as mancozeb",
+                "Remove infected plant debris",
+                "Ensure proper airflow",
+                "Use resistant varieties",
+                "Avoid excessive moisture"
+            ],
+
+            "Potato__healthy": [
+                "Maintain proper irrigation",
+                "Ensure balanced nutrients",
+                "Monitor leaves regularly",
+                "Keep soil well drained",
+                "Use preventive care"
+            ],
+
+            "Tomato_Early_blight": [
+                "Apply chlorothalonil fungicide",
+                "Remove infected leaves",
+                "Use mulch to prevent soil splash",
+                "Rotate crops yearly",
+                "Avoid watering leaves"
+            ],
+
+            "Tomato_Late_blight": [
+                "Remove infected plants immediately",
+                "Apply metalaxyl fungicide",
+                "Improve drainage",
+                "Avoid humidity buildup",
+                "Monitor nearby plants"
+            ],
+
+            "Tomato_healthy": [
+                "Maintain proper watering",
+                "Provide enough sunlight",
+                "Apply balanced fertilizer",
+                "Inspect plants regularly",
+                "Ensure proper airflow"
+            ]
+        }
+
+        # Get uploaded image
         file = request.files["leaf_image"]
 
         upload_folder = "Frontend/static/uploads"
@@ -130,24 +191,18 @@ def predict_disease_route():
         filepath = os.path.join(upload_folder, file.filename)
         file.save(filepath)
 
+        # Predict disease
         disease = predict_disease(filepath)
 
-        # simple recommendation system
-        recommendations = {
-            "Pepper__bell__Bacterial_spot": "Use copper-based fungicide.",
-            "Pepper__bell__healthy": "Plant is healthy. Maintain proper watering.",
-            "Potato__Early_blight": "Apply Mancozeb fungicide.",
-            "Potato__healthy": "Crop is healthy. Continue good farming practices.",
-            "Tomato_Early_blight": "Use fungicide like chlorothalonil.",
-            "Tomato_Late_blight": "Apply copper fungicide immediately.",
-            "Tomato_healthy": "Plant is healthy."
-        }
+        # Get recommendations
+        solution = disease_treatments.get(disease, ["No recommendation available"])
 
-        solution = recommendations.get(disease, "No recommendation available.")
+        # Format disease name (remove underscores)
+        formatted_disease = disease.replace("_", " ")
 
         return render_template(
             "analyze.html",
-            disease=disease,
+            disease=formatted_disease,
             solution=solution,
             image=file.filename
         )

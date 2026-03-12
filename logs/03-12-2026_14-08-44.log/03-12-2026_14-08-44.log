@@ -1,0 +1,29 @@
+[2026-03-12 14:08:55,188] 464 WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+[2026-03-12 14:08:55,196] 249 WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+[2026-03-12 14:08:55,574] 97 WARNING -  * Debugger is active!
+[2026-03-12 14:08:55,588] 97 INFO -  * Debugger PIN: 137-931-322
+[2026-03-12 14:09:03,636] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "POST /predict_disease HTTP/1.1" 200 -
+[2026-03-12 14:09:03,946] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "[36mGET /static/base.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:03,950] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:03,987] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "[36mGET /static/hero.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:03,992] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "[36mGET /static/forms.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:03,994] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "[36mGET /static/cards.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:03,995] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:03] "[36mGET /static/analyze.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:04,254] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:04] "[36mGET /static/utility.js HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:04,317] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:04] "GET /static/uploads/late_blight_tomato_leaf5x1200.jpg HTTP/1.1" 200 -
+[2026-03-12 14:09:04,317] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:04] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:04,572] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:04] "GET /static/analyze.js HTTP/1.1" 200 -
+[2026-03-12 14:09:07,653] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:07] "GET /api/weather HTTP/1.1" 200 -
+[2026-03-12 14:09:28,899] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:28] "POST /predict_disease HTTP/1.1" 200 -
+[2026-03-12 14:09:28,935] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:28] "[36mGET /static/base.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:28,942] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:28] "[36mGET /static/navbar.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,253] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/hero.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,253] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/cards.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,263] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/forms.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,267] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/analyze.css HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,270] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/utility.js HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,602] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:29,602] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "GET /static/uploads/BLS-pepper-2020-scaled.jpg HTTP/1.1" 200 -
+[2026-03-12 14:09:29,607] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:29] "[36mGET /static/analyze.js HTTP/1.1[0m" 304 -
+[2026-03-12 14:09:32,525] 97 INFO - 127.0.0.1 - - [12/Mar/2026 14:09:32] "GET /api/weather HTTP/1.1" 200 -
+[2026-03-12 14:12:36,290] 97 INFO -  * Detected change in 'C:\\minorproject\\krishmitra\\app.py', reloading
